@@ -27,6 +27,17 @@ module.exports = function (authKey, senderId, route) {
         message = validateMessage(message);
 
         var isUnicode = isUnicodeString(message);
+        
+        // for fixing this issue - http://help.msg91.com/article/59-problem-with-plus-sign-api-send-sms
+        
+        var specialChars = ['+', '&', '#', '%', '@', '/', ';', '=', '?', '^', '|']; // EncodeUriComponent Doesn't work on ! * ( ) . _ - ' ~ `
+        
+        if (specialChars.some(function (v) {
+                return message.indexOf(v) >= 0;
+            })) {
+            // if there is at least one special character present in message string
+            message = encodeURIComponent(encodeURIComponent(message));
+        }
 
         var postData = "authkey=" + authKey + "&sender=" + senderId + "&mobiles=" + mobileNos + "&message=" + message + "&route=" + route;
 
