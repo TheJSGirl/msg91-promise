@@ -1,6 +1,7 @@
 const {
   makeHttpRequest, isUnicodeString,
   modifyCallbackIfNull, validateMessage,
+  validateMobileNos,
 } = require('./helpers');
 
 /**
@@ -89,15 +90,4 @@ module.exports = function MSG91(authKey, senderId, route) {
   });
 };
 
-function validateMobileNos(mobileNos) {
-  if (mobileNos == null || mobileNos == '') {
-    throw new Error('MSG91 : Mobile No is not provided.');
-  }
-
-  if (mobileNos instanceof Array) {
-    mobileNos = mobileNos.join(',');
-  }
-
-  return mobileNos;
-}
 

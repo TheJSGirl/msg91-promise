@@ -2,6 +2,9 @@ const http = require('http');
 
 const makeHttpRequest = (options, postData, callback) => {
   let data = '';
+  if (!options) {
+    throw new Error('MSG91 : option object is not provided.');
+  }
   const req = http.request(options, (res) => {
     res.setEncoding('utf8');
 

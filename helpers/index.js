@@ -18,9 +18,25 @@ function isUnicodeString(str) {
   return false;
 }
 
+function validateMobileNos(mobileNos) {
+  let mobileNumbers = mobileNos;
+
+  if (!mobileNumbers) {
+    throw new Error('MSG91 : Mobile No is not provided.');
+  }
+
+  if (mobileNumbers instanceof Array) {
+    mobileNumbers = mobileNumbers.join(',');
+  }
+
+  return mobileNumbers;
+}
+
+
 module.exports = {
   validateMessage,
   modifyCallbackIfNull,
   isUnicodeString,
   makeHttpRequest,
+  validateMobileNos,
 };
