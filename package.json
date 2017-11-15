@@ -6,6 +6,17 @@
   "main": "app.js",
   "author": "Hiren Soni",
   "license": "ISC",
-  "keywords" : [ "msg91", "API", "node.js"],
-  "repository" : "https://github.com/hirenrojasara/Msg91"
+  "keywords": [
+    "msg91",
+    "API",
+    "node.js"
+  ],
+  "repository": "https://github.com/hirenrojasara/Msg91",
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
+  },
+  "dependencies": {
+    "eslint": "^4.11.0"
+  }
 }
