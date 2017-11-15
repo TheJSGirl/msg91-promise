@@ -1,10 +1,9 @@
 import makeHttpRequest from './makeHttpRequest';
 
 function validateMessage(message) {
-  if (message == null || message == '') {
+  if (!message) {
     throw new Error('MSG91 : message is not provided.');
   }
-
   return message;
 }
 
