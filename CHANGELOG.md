@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Released]
 
+## [0.1.2] - 2017-11-16
+### Added
+- Update in README
+
+
+## [Released]
+
 ## [0.1.1] - 2017-11-16
 ### Added
 - Native promise wrapper

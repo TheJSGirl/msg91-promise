@@ -1,6 +1,6 @@
 {
   "name": "msg91-promise",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "description": "Promise based API For MSG91 SMS Gateway. - It is not an official version of MSG91",
   "main": "app.js",
