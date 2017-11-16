@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Released]
 
-## [1.0.0] - 2017-06-20
+## [0.1.1] - 2017-11-16
 ### Added
 - Native promise wrapper
 - ESLINT for linting
