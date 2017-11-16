@@ -1,4 +1,4 @@
-import makeHttpRequest from './makeHttpRequest';
+const makeHttpRequest = require('./makeHttpRequest');
 
 function validateMessage(message) {
   if (!message) {

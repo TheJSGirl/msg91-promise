@@ -61,14 +61,7 @@ module.exports = function MSG91(authKey, senderId, route) {
     });
   };
 
-  this.getBalance = (customRoute, callback) => {
-    if (arguments.length === 1) {
-      callback = customRoute;
-      customRoute = null;
-    }
-
-    callback = modifyCallbackIfNull(callback);
-
+  this.getBalance = (customRoute) => {
     const currentRoute = customRoute || route;
 
     const options = {
@@ -81,9 +74,9 @@ module.exports = function MSG91(authKey, senderId, route) {
     return new Promise((resolve, reject) => {
       makeHttpRequest(options, null, (err, data) => {
         if (err) {
-          reject(callback(err, null));
+          reject(err);
         }
-        resolve(callback(null, data));
+        resolve(data);
       });
     });
   };

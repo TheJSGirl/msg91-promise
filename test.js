@@ -2,39 +2,36 @@
  * Created by hiren on 26/11/15.
  */
 
-var msg91 = require("./index")("API", "SENDERID", "ROUTE");
+const msg91 = require('./index')('183855AEOEBOtm5a0c3b14', 'CCPLCK', 4);
 
-var mobileNo = "XXXXXXXXXX";
+// const mobileNo = '918826624872';
 
-msg91.send("mobileNo", "MESSAGE", function (err, response) {
-    console.log(err);
-    console.log(response);
-});
-
-
-var mobileList = [ "XXXXXXXXXX", "XXXXXXXXXX", "XXXXXXXXXX" ];
-
-msg91.send(mobileList, "MESSAGE", function (err, response) {
-    console.log(err);
-    console.log(response);
-});
-
-var mobileNoCSV =  "XXXXXXXXXX,XXXXXXXXXX,XXXXXXXXXX";
-
-msg91.send(mobileNoCSV, "MESSAGE", function (err, response) {
-    console.log(err);
-    console.log(response);
-});
-
-msg91.getBalance(function(err, response){
-    console.log(err);
-    console.log(response);
-})
-
-msg91.getBalance("ROUTE", function(err, response){
-    console.log(err);
-    console.log("Custom Router : " + response);
-})
+// msg91.send(mobileNo, 'MESSAGE', (err, response) => {
+//   console.log(err);
+//   console.log(response);
+// });
 
 
+// const mobileList = ['XXXXXXXXXX', 'XXXXXXXXXX', 'XXXXXXXXXX'];
+
+// msg91.send(mobileList, 'MESSAGE', (err, response) => {
+//   console.log(err);
+//   console.log(response);
+// });
+
+// const mobileNoCSV = 'XXXXXXXXXX,XXXXXXXXXX,XXXXXXXXXX';
+
+// msg91.send(mobileNoCSV, 'MESSAGE', (err, response) => {
+//   console.log(err);
+//   console.log(response);
+// });
+
+// msg91.getBalance((err, response) => {
+//   console.log(err);
+//   console.log(response);
+// });
+
+msg91.getBalance(4)
+  .then(response => console.log(response))
+  .catch(err => console.log(err));
 
