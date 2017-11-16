@@ -4,7 +4,7 @@ Promise based Msg91 API for node.js
 # Msg91 Installation
 
 ```javascript 
-npm install msg91-promise --S
+npm install msg91-promise -S
 yarn add msg91-promise
 ```
 
