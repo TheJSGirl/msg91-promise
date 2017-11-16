@@ -1,7 +1,6 @@
 const {
   makeHttpRequest, isUnicodeString,
-  modifyCallbackIfNull, validateMessage,
-  validateMobileNos,
+  validateMessage, validateMobileNos,
 } = require('./helpers');
 
 /**
@@ -23,24 +22,23 @@ module.exports = function MSG91(authKey, senderId, route) {
     throw new Error('MSG91 router Id is not provided.');
   }
 
-  this.send = (mobileNos, message, callback) => {
-    callback = modifyCallbackIfNull(callback);
-    mobileNos = validateMobileNos(mobileNos);
-    message = validateMessage(message);
+  this.send = (mobileNos, message) => {
+    const mobileNumbers = validateMobileNos(mobileNos);
+    let encodedMessage = validateMessage(message);
 
 
     // for fixing this issue - http://help.msg91.com/article/59-problem-with-plus-sign-api-send-sms
     // EncodeUriComponent Doesn't work on ! * ( ) . _ - ' ~ `
     const specialChars = ['+', '&', '#', '%', '@', '/', ';', '=', '?', '^', '|'];
-
+  
     if (specialChars.some(v => message.indexOf(v) >= 0)) {
       // if there is at least one special character present in message string
-      message = encodeURIComponent(encodeURIComponent(message));
+      encodedMessage = encodeURIComponent(encodeURIComponent(message));
     }
 
-    let postData = `authkey=${authKey}&sender=${senderId}&mobiles=${mobileNos}&message=${message}&route=${route}`;
+    let postData = `authkey=${authKey}&sender=${senderId}&mobiles=${mobileNumbers}&message=${encodedMessage}&route=${route}`;
 
-    const isUnicode = isUnicodeString(message);
+    const isUnicode = isUnicodeString(encodedMessage);
     if (isUnicode) {
       postData += '&unicode=1';
     }
@@ -56,8 +54,13 @@ module.exports = function MSG91(authKey, senderId, route) {
       },
     };
 
-    makeHttpRequest(options, postData, (err, data) => {
-      callback(err, data);
+    return new Promise((resolve, reject) => {
+      makeHttpRequest(options, postData, (err, data) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(data);
+      });
     });
   };
 
