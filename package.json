@@ -1,22 +1,30 @@
 {
-  "name": "msg91",
-  "version": "0.0.6",
+  "name": "msg91-promise",
+  "version": "0.0.1",
   "private": false,
-  "description": "API For MSG91 SMS Gateway. - It is not an official version of MSG91",
+  "description": "Promise based API For MSG91 SMS Gateway. - It is not an official version of MSG91",
   "main": "app.js",
-  "author": "Hiren Soni",
+  "author": "Ashok Dey",
   "license": "ISC",
   "keywords": [
     "msg91",
     "API",
     "node.js"
   ],
-  "repository": "https://github.com/hirenrojasara/Msg91",
   "devDependencies": {
+    "eslint": "^4.11.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0"
   },
-  "dependencies": {
-    "eslint": "^4.11.0"
-  }
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashokdey/msg91-promise.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ashokdey/msg91-promise/issues"
+  },
+  "homepage": "https://github.com/ashokdey/msg91-promise#readme"
 }
