@@ -1,9 +1,5 @@
-# Msg91
-Msg91 API for node.js
-
-
-[![NPM](https://nodei.co/npm/msg91.png?downloads=true)](https://npmjs.org/package/msg91)
-
+# msg91-promise
+Promise based Msg91 API for node.js
 
 # Msg91 Installation
 
@@ -13,8 +9,6 @@ yarn add msg91-promise
 ```
 
 # APIs
-
-
 
 ### ROUTE_NO
 ```javascript
@@ -67,10 +61,3 @@ msg91.getBalance(ROUTE)
   .catch(err => console.log(err));
 
 ```
-
-
-
-# Msg91 Constants
-
-
-
