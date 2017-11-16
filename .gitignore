@@ -33,3 +33,4 @@ node_modules
 # if Modified in mac
 *.DS_Store
 test2.js
+.vscode

@@ -1,6 +1,8 @@
 # msg91-promise
 Promise based Msg91 API for node.js
 
+[![NPM](https://nodei.co/npm/msg91-promise.png)](https://nodei.co/npm/msg91-promise/)
+
 # Msg91 Installation
 
 ```javascript 
