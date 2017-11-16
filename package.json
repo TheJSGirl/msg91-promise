@@ -5,7 +5,7 @@
   "description": "Promise based API For MSG91 SMS Gateway. - It is not an official version of MSG91",
   "main": "app.js",
   "author": "Ashok Dey",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [
     "msg91",
     "API",
