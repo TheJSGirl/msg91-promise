@@ -8,53 +8,12 @@ Msg91 API for node.js
 # Msg91 Installation
 
 ```javascript 
-npm install msg91 --save
+npm install msg91-promise --S
+yarn add msg91-promise
 ```
 
-# Msg91 Integration
+# APIs
 
-
-### Send SMS
-
-```javascript
-var msg91 = require("msg91")("API_KEY", "SENDER_ID", "ROUTE_NO" );
-
-
-// Mobile No can be a single number, list or csv string
-
-var mobileNo = "XXXXXXXXXX";
-
-var mobileNo = [ "XXXXXXXXXX", "XXXXXXXXXX", "XXXXXXXXXX" ];
-
-var mobileNo =  "XXXXXXXXXX,XXXXXXXXXX,XXXXXXXXXX";
-
-msg91.send(mobileNo, "MESSAGE", function(err, response){
-    console.log(err);
-    console.log(response);
-});
-```
-
-
-
-
-### Get Balance
-
-```javascript
-msg91.getBalance(function(err, msgCount){
-    console.log(err);
-    console.log(msgCount);
-});
-
-// Get Balance for given Route.
-msg91.getBalance("ROUTE_NO", function(err, msgCount){
-    console.log(err);
-    console.log(msgCount);
-});
-```
-
-
-
-# Msg91 Constants
 
 
 ### ROUTE_NO
@@ -62,4 +21,56 @@ msg91.getBalance("ROUTE_NO", function(err, msgCount){
 1 - Promotional Route
 4 - Transactional Route
 ```
+
+
+### Send SMS
+
+```javascript
+
+const API_KEY = null; // your API key
+const SENDER_ID = null; // your sender ID, exact 6 chars long
+const ROUTE = null; //route number (See above)
+
+const msg91 = require('./index')(API_KEY, SENDER_ID, ROUTE);
+
+// put your mobile number here
+const mobileNo = 'XXXXXXXXXX';
+
+// sending message to a single number
+msg91.send(mobileNo, 'MESSAGE')
+  .then(response => console.log(response))
+  .catch(err => console.log(err));
+
+// can also send sms to an array of numbers
+const mobileList = ['XXXXXXXXXX', 'XXXXXXXXXX', 'XXXXXXXXXX'];
+
+msg91.send(mobileList, 'MESSAGE')
+  .then(response => console.log(response))
+  .catch(err => console.log(err));
+
+// mobile numbers can be inside a CSV file
+const mobileNoCSV = 'XXXXXXXXXX,XXXXXXXXXX,XXXXXXXXXX';
+
+// pass the CSV file containing mobile numbers
+msg91.send(mobileNoCSV, 'MESSAGE')
+  .then(response => console.log(response))
+  .catch(err => console.log(err));
+
+// check your balance
+msg91.getBalance()
+  .then(response => console.log(response))
+  .catch(err => console.log(err));
+
+// get balance for a particular route
+msg91.getBalance(ROUTE)
+  .then(response => console.log(response))
+  .catch(err => console.log(err));
+
+```
+
+
+
+# Msg91 Constants
+
+
 
